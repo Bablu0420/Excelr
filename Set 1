@@ -1,0 +1,51 @@
+Q4
+# Given probability of a single attempt resulting in a wrong number
+p_single_attempt = 1/200
+
+# Probability that none of the five attempts result in a wrong number
+p_none_wrong = (1 - p_single_attempt)**5
+
+# Probability that at least one of the five attempts reaches the wrong number
+p_at_least_one_wrong = 1 - p_none_wrong
+
+print(f"The probability that at least one in five attempted telephone calls reaches the wrong number is approximately {p_at_least_one_wrong:.6f}")
+
+Q5 1
+# Given probability distribution
+outcomes = [-2000, -1000, 0, 1000, 2000, 3000]
+probabilities = [0.1, 0.1, 0.2, 0.2, 0.3, 0.1]
+
+# Calculate the expected value
+expected_value = sum(x * p for x, p in zip(outcomes, probabilities))
+
+print(f"The most likely monetary outcome of the business venture is ${expected_value:.0f}")
+
+Q5 2
+
+# Given probability distribution
+outcomes = [-2000, -1000, 0, 1000, 2000, 3000]
+probabilities = [0.1, 0.1, 0.2, 0.2, 0.3, 0.1]
+
+# Calculate the expected value
+expected_value = sum(x * p for x, p in zip(outcomes, probabilities))
+
+print(f"The most likely monetary outcome of the business venture is ${expected_value:.0f}")
+
+Q5 3
+
+# Given probability distribution
+outcomes = [-2000, -1000, 0, 1000, 2000, 3000]
+probabilities = [0.1, 0.1, 0.2, 0.2, 0.3, 0.1]
+
+# Calculate the expected value (long-term average earning)
+expected_value = sum(x * p for x, p in zip(outcomes, probabilities))
+
+print(f"The long-term average earning of business ventures of this kind is ${expected_value:.0f}")
+
+Q5 4
+import math
+
+# Calculate the standard deviation
+std_deviation = math.sqrt(sum((x - expected_value)**2 * p for x, p in zip(outcomes, probabilities)))
+
+print(f"The standard deviation, a measure of risk, for theThe standard deviation, a measure of risk, for the venture of this kind is approximately $1470 venture of this kind is approximately ${std_deviation:.0f}")
