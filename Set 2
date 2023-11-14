@@ -1,0 +1,109 @@
+Q1
+
+import scipy.stats as stats
+
+# Given values
+mu = 45
+sigma = 8
+committed_time = 50
+
+# Calculate z-score
+z_score = (committed_time - mu) / sigma
+
+# Find the probability using the standard normal distribution table
+probability_cannot_meet_commitment = 1 - stats.norm.cdf(z_score)
+
+print(f"Probability that the service manager cannot meet his commitment: {probability_cannot_meet_commitment:.4f}")
+
+Q4
+
+import math
+
+# Given values
+mu = 100
+sigma = 20
+z_score = 2.576
+
+# Calculate a and b
+a = mu - z_score * sigma
+b = mu + z_score * sigma
+
+print(f"The values a and b are {a:.2f} and {b:.2f} respectively.")
+
+
+Q5 A
+
+import math
+
+mean_X1 = 5
+variance_X1 = 32
+
+mean_X2 = 7
+variance_X2 = 42
+
+conversion_rate = 45
+confidence_level = 0.95
+z_score = 1.96  # For a 95% confidence interval
+
+mean_Y_rupees = conversion_rate * (mean_X1 + mean_X2)
+variance_Y_rupees = conversion_rate**2 * (variance_X1 + variance_X2)
+
+std_dev_Y_rupees = math.sqrt(variance_Y_rupees)
+
+margin_of_error = z_score * (std_dev_Y_rupees / math.sqrt(2))  # Assuming equal sample sizes for X1 and X2
+
+
+range_low = mean_Y_rupees - margin_of_error
+range_high = mean_Y_rupees + margin_of_error
+
+print(f"The Rupee range (centered on the mean) with a 95% confidence interval is approximately [{range_low:.2f}, {range_high:.2f}] Rupees.")
+
+Q5 B
+
+import scipy.stats as stats
+
+mean_X1 = 5
+variance_X1 = 32
+
+mean_X2 = 7
+variance_X2 = 42
+
+conversion_rate = 45
+mean_Y_rupees = conversion_rate * (mean_X1 + mean_X2)
+variance_Y_rupees = conversion_rate**2 * (variance_X1 + variance_X2)
+
+std_dev_Y_rupees = math.sqrt(variance_Y_rupees)
+
+# Calculate the 5th percentile of profit in Rupees
+percentile_5_rupees = stats.norm.ppf(0.05, loc=mean_Y_rupees, scale=std_dev_Y_rupees)
+
+print(f"The 5th percentile of profit for the company in Rupees is approximately {percentile_5_rupees:.2f} Rupees.")4
+
+Q5 C
+
+mean_X1 = 5
+variance_X1 = 32
+
+mean_X2 = 7
+variance_X2 = 42
+
+conversion_rate = 45
+
+mean_X1_rupees = conversion_rate * mean_X1
+variance_X1_rupees = conversion_rate**2 * variance_X1
+
+mean_X2_rupees = conversion_rate * mean_X2
+variance_X2_rupees = conversion_rate**2 * variance_X2
+
+prob_loss_X1 = stats.norm.cdf(0, loc=mean_X1_rupees, scale=math.sqrt(variance_X1_rupees))
+prob_loss_X2 = stats.norm.cdf(0, loc=mean_X2_rupees, scale=math.sqrt(variance_X2_rupees))
+
+# Compare the probabilities
+if prob_loss_X1 > prob_loss_X2:
+    result = "Division 1"
+elif prob_loss_X1 < prob_loss_X2:
+    result = "Division 2"
+else:
+    result = "Both divisions have the same probability of making a loss"
+
+print(f"The division with a larger probability of making a loss is: {result}")
