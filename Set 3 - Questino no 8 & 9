@@ -1,0 +1,12 @@
+
+# Question 8
+z_score_95 = 1.96
+estimated_proportion_8 = 0.5  # Assuming a conservative estimate (maximum variability)
+margin_of_error_8 = 0.04
+sample_size_95 = calculate_sample_size(z_score_95, estimated_proportion_8, margin_of_error_8)
+print(f"Question 8: Minimum sample size for 95% confidence: {sample_size_95}")
+
+# Question 9
+z_score_98 = 2.33
+sample_size_98 = calculate_sample_size(z_score_98, estimated_proportion_8, margin_of_error_8)
+print(f"Question 9: Minimum sample size for 98% confidence: {sample_size_98}")
